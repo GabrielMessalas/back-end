@@ -1,0 +1,41 @@
+{
+  "name": "ilhaconectada-backend-dev",
+  "version": "1.0.0",
+  "description": "backend do projeto",
+  "main": "loader.js",
+  "scripts": {
+    "dev": "nodemon",
+    "production": "pm2 start loader.js --name backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/latansio/ilhaconectada-backend-dev.git"
+  },
+  "keywords": [
+    "backend",
+    "pmisa",
+    "nodejs"
+  ],
+  "author": "Andre Luiz Latansio de Oliveira",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "express-query-int": "^2.0.0",
+    "jsonwebtoken": "^8.1.0",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.12.4",
+    "mongoose-paginate": "^5.0.3",
+    "node-restful": "^0.2.6",
+    "pm2": "^2.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  },
+  "bugs": {
+    "url": "https://github.com/latansio/ilhaconectada-backend-dev/issues"
+  },
+  "homepage": "https://github.com/latansio/ilhaconectada-backend-dev#readme"
+}
