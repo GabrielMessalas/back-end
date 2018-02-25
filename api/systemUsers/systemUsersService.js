@@ -96,6 +96,67 @@ SystemUsers.route('validateFields', function (req, res, next) {
     }
 });
 
+SystemUsers.route('search', function (req, res, next) {
+    const campo = req.body.campo || ''
+    var valor = req.body.valor || ''
+ 
+    console.log(req.body);
+    var query;
+ 
+    if (campo == "name") {
+ 
+        query = {
+            "name":  {
+                $regex : valor
+            }
+        }
+    } else if (campo == "cpf") {
+        query = {
+            "documents.name": "CPF",
+            "documents.value": {
+                $regex: valor
+            }
+        }
+ 
+    } else if (campo == "rg") {
+        query = {
+            "documents.name": "RG",
+            "documents.value": {
+                $regex: valor
+            }
+        }
+ 
+    } else if (campo == "email") {
+        query = {
+            "email":  {
+                $regex : valor
+            }
+        }
+ 
+    } /* else if (campo == "phone") {
+        query = {
+            "documents.value" : valor
+        }
+ 
+    } else if (campo == "city") {
+ 
+    } */
+ 
+    console.log(query)
+ 
+    SystemUsers.find(query, (error, user) => {
+ 
+        if (error) {
+            return res.status(500).json({ errors: [error] })
+        } else if (user) {
+            return res.json(user)
+ 
+        }
+    })
+ 
+ 
+});
+
 // exportando os servicoes de restful do módulo de usuario para os outros modulos do backend
 module.exports = SystemUsers
 
